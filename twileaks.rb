@@ -26,8 +26,23 @@ __END__
 @@ layout
 <html>
   <head>
-    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' type='text/javascript'></script>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="docs.css" rel="stylesheet">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' type='text/javascript'></script>
     <script src='main.js' type='text/javascript'></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29293708-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
   </head>
   <body>
     <%= yield %>
@@ -35,19 +50,23 @@ __END__
 </html>
 
 @@ index
-<h1>TwiLeaks</h1>
-<form method='post'>
-  <input id='text' name='text' type='' />
-  <span id='count'>130</span>
-  <input type='submit' value='leak' />
-</form>
-designed by
-<a href='http://twitter.com/kimihito_'>@kimihito_</a>
-<br />
-implementation by
-<a href='http://twitter.com/hanachin_'>@hanachin_</a>
+<div class="container">
+<header class="jumbotron masthead">
+  <div class="inner">
+    <h1>TwiLeaks</h1>
+    <p>匿名でつぶやきたいあなたへの最高のソリューションです</p>
+    <form method='post'>
+      <p>
+        <textarea id='text' name='text' class="input-xlarge"></textarea>
+        <span id='count'>130</span><br/>
+       <input class="btn btn-primary btn-large" type='submit' value='leak' />
+      </p>
+    </form>
+  </div>
+</header>
 
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<div style="padding-left: 320px">
+<script charset="utf-8" src="https://widgets.twimg.com/j/2/widget.js"></script>
 <script>
 new TWTR.Widget({
   version: 2,
@@ -56,8 +75,8 @@ new TWTR.Widget({
   interval: 30000,
   title: '',
   subject: '',
-  width: 'auto',
-  height: 600,
+  width: 320,
+  height: 300,
   theme: {
     shell: {
       background: '#ffffff',
@@ -70,10 +89,17 @@ new TWTR.Widget({
     }
   },
   features: {
-    scrollbar: true,
-    loop: false,
+    scrollbar: false,
+    loop: true,
     live: true,
-    behavior: 'all'
+    behavior: 'default'
   }
 }).render().start();
 </script>
+design by
+<a href='http://twitter.com/kimihito_'>@kimihito_</a>
+implementated by
+<a href='http://twitter.com/hanachin_'>@hanachin_</a>
+</div>
+</div>
+</div>
