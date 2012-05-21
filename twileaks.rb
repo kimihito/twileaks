@@ -25,12 +25,15 @@ end
 __END__
 @@ layout
 %html
+  %head
+    %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'}
+    %script{:type => 'text/javascript', :src => 'main.js'}
   = yield
 
 @@ index
 %h1 TwiLeaks
 %form{:method => 'post'}
-  %input{:type => '', :name => 'text'}
+  %input{:id => 'text', :type => '', :name => 'text'}
   %span{:id => 'count'}130
   %input{:type => 'submit', :value => 'leak'}
 designed by
