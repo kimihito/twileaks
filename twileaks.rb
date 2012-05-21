@@ -10,7 +10,7 @@ Twitter.configure do |c|
 end
 
 get '/' do
-  haml :index
+  erb :index
 end
 
 post '/' do
@@ -19,25 +19,30 @@ post '/' do
   rescue
     "エラーだよ!"
   end
-  haml :index
+  erb :index
 end
 
 __END__
 @@ layout
-%html
-  %head
-    %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'}
-    %script{:type => 'text/javascript', :src => 'main.js'}
-  = yield
+<html>
+  <head>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' type='text/javascript'></script>
+    <script src='main.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
 
 @@ index
-%h1 TwiLeaks
-%form{:method => 'post'}
-  %input{:id => 'text', :type => '', :name => 'text'}
-  %span{:id => 'count'}130
-  %input{:type => 'submit', :value => 'leak'}
+<h1>TwiLeaks</h1>
+<form method='post'>
+  <input id='text' name='text' type='' />
+  <span id='count'>130</span>
+  <input type='submit' value='leak' />
+</form>
 designed by
-%a{:href => 'http://twitter.com/kimihito_'}@kimihito_
-%br
+<a href='http://twitter.com/kimihito_'>@kimihito_</a>
+<br />
 implementation by
-%a{:href => 'http://twitter.com/hanachin_'}@hanachin_
+<a href='http://twitter.com/hanachin_'>@hanachin_</a>
