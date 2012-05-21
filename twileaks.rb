@@ -46,3 +46,34 @@ designed by
 <br />
 implementation by
 <a href='http://twitter.com/hanachin_'>@hanachin_</a>
+
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: '#twileaks',
+  interval: 30000,
+  title: '',
+  subject: '',
+  width: 'auto',
+  height: 600,
+  theme: {
+    shell: {
+      background: '#ffffff',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#1985b5'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().start();
+</script>
