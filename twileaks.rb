@@ -14,11 +14,11 @@ get '/' do
 end
 
 post '/' do
-  begin
-    Twitter.update params[:text] + " #twileaks"
-  rescue
-    "エラーだよ!"
-  end
+  # begin
+  #   Twitter.update params[:text] + " #twileaks"
+  # rescue
+  #   "エラーだよ!"
+  # end
   erb :index
 end
 
@@ -55,10 +55,15 @@ __END__
 <header class="jumbotron masthead">
   <div class="inner">
     <h1>TwiLeaks</h1>
-    <p>匿名でつぶやきたいあなたへの最高のソリューションです</p>
+    <p>
+      <del>匿名でつぶやきたいあなたへの最高のソリューションです</del><br/><br/>
+      いろいろめんどくさそうだったので止めました。<br/>
+      代わりにやってくれる人募集。ソースわたします。<br/>
+      連絡は<a href="http://twitter.com/kimihito_">@kimihito_</a>まで
+    </p>
     <form method='post'>
       <p>
-        <textarea id='text' name='text' class="input-xlarge"></textarea>
+        <textarea id='text' name='text' class="input-xlarge" placeholder="動かないよ"></textarea>
         <span id='count'>130</span><br/>
        <input class="btn btn-primary btn-large" type='submit' value='leak' />
       </p>
